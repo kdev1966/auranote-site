@@ -1,0 +1,96 @@
+/* AuraNote — identité Sauge, comme l'application (clair et sombre). Polices embarquées : rien n'est chargé ailleurs. */
+@font-face { font-family: "Figtree"; src: url("fonts/figtree_regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Figtree"; src: url("fonts/figtree_semibold.ttf") format("truetype"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Figtree"; src: url("fonts/figtree_bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Plex Arabic"; src: url("fonts/ibmplexsansarabic_regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Plex Arabic"; src: url("fonts/ibmplexsansarabic_semibold.ttf") format("truetype"); font-weight: 600 700; font-display: swap; }
+
+:root {
+  --papier: #F3F5F0; --fiche: #FFFFFF; --filet: #E2E7DD; --encre: #18201B; --graphite: #5A6660;
+  --accent: #2F6B57; --voile: #DCEBE4; --tache: #A34F33; --projet: #3B648F; --idee: #7D5F0E;
+  --ombre: 0 1px 2px rgba(24, 32, 27, .06), 0 8px 24px rgba(24, 32, 27, .06);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --papier: #121714; --fiche: #1B221E; --filet: #2A332D; --encre: #E8EEE9; --graphite: #A3AFA8;
+    --accent: #7FC7A9; --voile: #1E3A30; --tache: #E39A7E; --projet: #8EB0DA; --idee: #D9B85E;
+    --ombre: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--papier); color: var(--encre); font: 17px/1.6 "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; overflow-wrap: anywhere; }
+[lang="ar"] { font-family: "Plex Arabic", "Figtree", system-ui, sans-serif; letter-spacing: 0; line-height: 1.75; }
+a { color: var(--accent); }
+
+/* Pages de texte (confidentialité, conditions) */
+main { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+main h1 { font-size: 1.8rem; line-height: 1.25; margin: 0 0 4px; }
+main h2 { font-size: 1.2rem; margin: 32px 0 8px; }
+.date, main nav, main footer { color: var(--graphite); font-size: .95rem; }
+main nav { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; }
+main footer { border-top: 1px solid var(--filet); margin-top: 48px; padding-top: 16px; }
+
+/* Site vitrine */
+.vitrine { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+.barre { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; flex-wrap: wrap; }
+.marque { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.15rem; color: var(--encre); text-decoration: none; }
+.marque img { width: 36px; height: 36px; border-radius: 9px; }
+.langues { display: flex; gap: 14px; font-size: .95rem; }
+.langues a { color: var(--graphite); text-decoration: none; }
+.langues a[aria-current] { color: var(--encre); font-weight: 600; }
+
+.une { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; padding: 40px 0 72px; }
+.une h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; margin: 0 0 18px; }
+.une h1 em { font-style: normal; color: var(--accent); }
+.chapeau { font-size: 1.15rem; color: var(--graphite); margin: 0 0 28px; max-width: 34em; }
+.badges { display: flex; flex-wrap: wrap; gap: 10px; }
+.badge { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px; font-weight: 600; font-size: .95rem; }
+.badge.plein { background: var(--accent); color: var(--papier); }
+.badge.voile { background: var(--voile); color: var(--accent); }
+
+/* Le téléphone d'illustration */
+.telephone { justify-self: center; width: min(320px, 100%); border-radius: 40px; padding: 14px; background: #0e1310; box-shadow: var(--ombre); }
+.ecran { min-height: 560px; border-radius: 28px; background: var(--papier); padding: 22px 16px; display: flex; flex-direction: column; gap: 14px; }
+.titre-ecran { font-weight: 700; font-size: 1.05rem; }
+.fiche { background: var(--fiche); border-radius: 20px; padding: 14px 16px; box-shadow: var(--ombre); }
+.fiche .t { font-weight: 600; margin-bottom: 8px; line-height: 1.35; }
+.pastilles { display: flex; flex-wrap: wrap; gap: 6px; }
+.pastille { font-size: .78rem; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--filet); color: var(--graphite); }
+.pastille.tache { color: var(--tache); }
+.pastille.projet { color: var(--projet); }
+.pastille.idee { color: var(--idee); }
+.bulle { background: var(--voile); color: var(--encre); border-radius: 18px 18px 18px 6px; padding: 12px 14px; font-size: .9rem; line-height: 1.5; }
+[dir="rtl"] .bulle { border-radius: 18px 18px 6px 18px; }
+.bulle b { color: var(--accent); }
+.question { align-self: flex-end; background: var(--fiche); border: 1px solid var(--filet); border-radius: 18px 18px 6px 18px; padding: 10px 14px; font-size: .9rem; }
+[dir="rtl"] .question { align-self: flex-start; border-radius: 18px 18px 18px 6px; }
+
+.section { padding: 56px 0; border-top: 1px solid var(--filet); }
+.section h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); line-height: 1.25; margin: 0 0 8px; }
+.section > p { color: var(--graphite); margin: 0 0 32px; max-width: 40em; }
+.grille { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.carte { background: var(--fiche); border: 1px solid var(--filet); border-radius: 20px; padding: 22px; }
+.carte h3 { margin: 12px 0 6px; font-size: 1.1rem; }
+.carte p { margin: 0; color: var(--graphite); font-size: .98rem; }
+.picto { width: 40px; height: 40px; border-radius: 12px; background: var(--voile); color: var(--accent); display: grid; place-items: center; }
+.picto svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.prive { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+.coches { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.coches li { display: flex; gap: 12px; align-items: flex-start; }
+.coches li::before { content: "✓"; flex: 0 0 24px; height: 24px; margin-top: 2px; border-radius: 50%; background: var(--voile); color: var(--accent); font-weight: 700; font-size: .85rem; display: grid; place-items: center; }
+
+.questions details { background: var(--fiche); border: 1px solid var(--filet); border-radius: 16px; padding: 14px 18px; margin-bottom: 10px; }
+.questions summary { cursor: pointer; font-weight: 600; }
+.questions details p { color: var(--graphite); margin: 10px 0 2px; }
+
+.pied { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; padding: 28px 0 48px; border-top: 1px solid var(--filet); color: var(--graphite); font-size: .95rem; }
+.pied .liens { display: flex; flex-wrap: wrap; gap: 18px; }
+
+@media (max-width: 860px) {
+  .une { grid-template-columns: 1fr; gap: 40px; padding-top: 16px; }
+  .grille, .prive { grid-template-columns: 1fr; }
+  .ecran { min-height: 0; }
+}
