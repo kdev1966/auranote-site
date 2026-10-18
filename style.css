@@ -94,3 +94,8 @@ main footer { border-top: 1px solid var(--filet); margin-top: 48px; padding-top:
   .grille, .prive { grid-template-columns: 1fr; }
   .ecran { min-height: 0; }
 }
+
+/* Aura Brain : la section qui distingue AuraNote, en tête */
+.brain { background: linear-gradient(180deg, var(--voile), transparent 85%); border-radius: 28px; padding: 40px 24px; border-top: 0; margin-bottom: 8px; }
+.grille.deux { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 860px) { .grille.deux { grid-template-columns: 1fr; } .brain { padding: 28px 16px; } }
